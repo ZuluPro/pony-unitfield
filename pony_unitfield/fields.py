@@ -1,4 +1,8 @@
-from functools import partialmethod
+try:
+    from functools import partialmethod
+except ImportError:
+    from django.utils.functional import curry as partialmethod
+
 from django.db.models import fields
 
 
@@ -15,13 +19,13 @@ def _get_FIELD_display(self, field):
 
 class UnitField(fields.FloatField):
     def __init__(self, unit, decimal=3, spaced_display=True, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(UnitField, self).__init__(*args, **kwargs)
         self.unit = unit
         self.decimal = decimal
         self.spaced_display = spaced_display
 
     def deconstruct(self):
-        name, path, args, kwargs = super().deconstruct()
+        name, path, args, kwargs = super(UnitField, self).deconstruct()
         args.extend(('unit',))
         kwargs.update(decimal=3, spaced_display=True)
         return name, path, args, kwargs

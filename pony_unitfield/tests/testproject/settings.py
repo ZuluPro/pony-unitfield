@@ -12,7 +12,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = []
 
-ROOT_URLCONF = 'pony_unitfield.tests.testproject.urls'
+# ROOT_URLCONF = 'pony_unitfield.tests.testproject.urls'
 
 TEMPLATES = [
     {
