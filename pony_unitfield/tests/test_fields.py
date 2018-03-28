@@ -22,3 +22,8 @@ class GetDisplayTestCase(TestCase):
         obj = models.Obj(non_spaced=42)
         display = obj.get_non_spaced_display()
         self.assertEqual(display, '42.000bone')
+
+    def test_integer(self):
+        obj = models.Obj(integer=42)
+        display = obj.get_integer_display()
+        self.assertEqual(display, '42 CFA')
