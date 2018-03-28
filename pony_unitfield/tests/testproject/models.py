@@ -11,3 +11,4 @@ class Obj(models.Model):
     non_spaced = UnitField(unit='bone', spaced_display=False, null=True)
 
     integer = IntegerUnitField(unit='CFA', null=True)
+    integer_3hdeci = IntegerUnitField(unit='feet', humanized_decimals=0, null=True)
